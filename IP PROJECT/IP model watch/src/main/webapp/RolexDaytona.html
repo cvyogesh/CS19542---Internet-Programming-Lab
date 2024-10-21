@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Details - Rolex Submariner</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+
+        .watch-details {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            display: flex;
+            opacity: 0;
+        }
+
+        .watch-details img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .details {
+            margin-left: 20px;
+            opacity: 0;
+        }
+
+        .model-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .offer {
+            font-size: 18px;
+            color: #ff6b6b;
+        }
+
+        .description {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background-color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Watch Details</h1>
+</header>
+
+<div class="container">
+    <div class="watch-details">
+        <img src="rolex_daytona.webp" alt="Rolex Submariner">
+        <div class="details">
+            <p class="model-name">Rolex Daytona</p>
+            <p class="price">$8,500</p>
+            <p class="offer">10% off</p>
+            <p class="description">
+                The Rolex Daytona is the ultimate diving watch, renowned for its classic design and durability. 
+                Perfect for underwater exploration as well as formal occasions.
+            </p>
+            <a href="brands.html" class="back-button">Back to Collection</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Animate the watch details container on page load
+        $(".watch-details").animate({ opacity: 1 }, 1000);
+
+        // Animate the details section with a delay
+        $(".details").delay(500).animate({ opacity: 1 }, 1000);
+
+        // Hover animation on the image
+        $(".watch-details img").hover(
+            function() {
+                $(this).css("transform", "scale(1.1)").css("transition", "transform 0.5s");
+            }, 
+            function() {
+                $(this).css("transform", "scale(1)").css("transition", "transform 0.5s");
+            }
+        );
+
+        // Back button hover animation
+        $(".back-button").hover(
+            function() {
+                $(this).css("background-color", "#ff6b6b");
+            }, 
+            function() {
+                $(this).css("background-color", "#333");
+            }
+        );
+    });
+</script>
+
+</body>
+</html>

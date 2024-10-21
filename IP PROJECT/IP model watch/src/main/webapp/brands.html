@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Brands Collection</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url(pexels-philkallahar-983200.jpg) center/cover no-repeat;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .brand-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .brand-name {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #ff6b6b;
+            opacity: 0;
+        }
+
+        .watch-collection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .watch-item {
+            background-color: #fff;
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            position: relative;
+        }
+
+        .watch-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .watch-info {
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .model-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .price {
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .offer {
+            color: #ff6b6b;
+            font-size: 14px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .watch-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 1 !important;
+            transition: opacity 1s ease;
+        }
+        
+        #commentForm {
+            display: none;
+        }
+        #UpdateForm {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Watch Collections</h1>
+</header>
+
+<section class="brand-section">
+    <!-- Brand 1 -->
+    <div class="brand-name">Rolex</div>
+    <div class="watch-collection">
+        <div class="watch-item">
+            <img src="rolex_submariner.jpeg" alt="Watch 1">
+            <div class="watch-info">
+                <p class="model-name"><a href="RolexSubmariner.html">Rolex Submariner</a></p>
+                <p class="price">$8,500</p>
+                <p class="offer">10% off</p>
+            </div>
+        </div>
+
+        <div class="watch-item">
+            <img src="rolex_daytona.webp" alt="Watch 2">
+            <div class="watch-info">
+                <p class="model-name"><a href="RolexDaytona.html">Rolex Daytona</a></p>
+                <p class="price">$12,400</p>
+                <p class="offer">15% off</p>
+            </div>
+        </div>
+
+        <div class="watch-item">
+            <img src="rolex_gmt.webp" alt="Watch 3">
+            <div class="watch-info">
+                <p class="model-name">Rolex GMT-Master II</p>
+                <p class="price">$9,950</p>
+                <p class="offer">8% off</p>
+            </div>
+        </div>
+    </div><br><br>
+
+    <!-- Brand 2 -->
+    <div class="brand-name">Omega</div>
+    <div class="watch-collection">
+        <div class="watch-item">
+            <img src="omega-speedmaster.webp" alt="Watch 4">
+            <div class="watch-info">
+                <p class="model-name">Omega Speedmaster</p>
+                <p class="price">$6,200</p>
+                <p class="offer">12% off</p>
+            </div>
+        </div>
+
+        <div class="watch-item">
+            <img src="omega-seamaster.webp" alt="Watch 5">
+            <div class="watch-info">
+                <p class="model-name">Omega Seamaster</p>
+                <p class="price">$7,100</p>
+                <p class="offer">10% off</p>
+            </div>
+        </div><br><br>
+
+        <div class="watch-item">
+            <img src="omega-seamaster-210-30-42-20-03-001-large.webp" alt="Watch 6">
+            <div class="watch-info">
+                <p class="model-name">Omega Constellation</p>
+                <p class="price">$8,300</p>
+                <p class="offer">5% off</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="brand-name">Patek Phillippe</div>
+    <div class="watch-collection">
+        <div class="watch-item">
+            <img src="pat_generic.jpg" alt="Watch 4">
+            <div class="watch-info">
+                <p class="model-name">Patek Phillippe Generic</p>
+                <p class="price">$6,200</p>
+                <p class="offer">12% off</p>
+            </div>
+        </div>
+
+        <div class="watch-item">
+            <img src="pat_celestial.webp" alt="Watch 5">
+            <div class="watch-info">
+                <p class="model-name">Grandes Complications Celestialr</p>
+                <p class="price">$7,100</p>
+                <p class="offer">10% off</p>
+            </div>
+        </div>
+
+        <div class="watch-item">
+            <img src="pat_min.webp" alt="Watch 6">
+            <div class="watch-info">
+                <p class="model-name">Grand Complications Minute Repeater</p>
+                <p class="price">$8,300</p>
+                <p class="offer">5% off</p>
+            </div>
+        </div>
+    </div>
+    
+    <h2 style="color: #fff;">COMMENTS</h2>
+    <form method="get" action="InsertComment" style="color: #fff;">
+        <label>UserName: </label>
+        <input type="text" name="uname" id="uname"><br><br>
+        <label>Comment: </label>
+        <input type="text" name="comm" id="comm"><br><br>
+        <label>Watch ID </label>
+        <input type="text" name="wid"><br><br>
+        <input type="submit" value="ADD COMMENT">
+        <input type="reset" value="CLEAR">
+        
+    </form>
+    <button onclick="ShowCom()">Show Comment</button><br>
+    
+    <button type="button" onclick="toggleForm()">Delete Comment</button>
+    
+    <button type="button" onclick="UpdateForm()">Edit Comment</button>
+    
+    <div id="commentForm">
+    <h2>COMMENTS</h2>
+    <form method="get" action="DeleteComment" style="color: #fff;">
+        <label>UserName: </label>
+        <input type="text" name="uname"><br><br>
+        <br>
+        <input type="submit" value="DELETE COMMENT">
+        
+    </form>
+</div>
+<div id="UpdateForm">
+    <h2>COMMENTS</h2>
+    <form method="get" action="UpdateComment" style="color: #fff;">
+        <label>UserName: </label>
+        <input type="text" name="uname" id="uname"><br><br>
+        <label>Comment: </label>
+        <input type="text" name="comm" id="comm"><br><br>
+        <label>Watch ID </label>
+        <input type="text" name="wid">
+        <input type="submit" value="UPDATE COMMENT">
+        
+    </form></div>
+    <form method="get" action="DisplayAll" style="color: #fff;">
+        
+        <input type="submit" value="DISPLAY ALL COMMENTS">
+        
+    </form>
+<p id="show" style="color: #fff;"></p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Luxury Watches</p>
+</footer>
+
+<script>
+
+function UpdateForm() {
+    var form = document.getElementById("UpdateForm");
+    if (form.style.display === "none" || form.style.display === "") {
+        form.style.display = "block"; // Show the form
+    } else {
+        form.style.display = "none"; // Hide the form if it's already shown
+    }
+}
+
+	function toggleForm() {
+	    var form = document.getElementById("commentForm");
+	    if (form.style.display === "none" || form.style.display === "") {
+	        form.style.display = "block"; // Show the form
+	    } else {
+	        form.style.display = "none"; // Hide the form if it's already shown
+	    }
+	}
+
+    function ShowCom() {
+        var commentsSection = document.getElementById("comm").value;
+    	var commentuser = document.getElementById("uname").value;
+
+    	document.getElementById("show").innerHTML=commentuser+"'s Comment: <br>"+commentsSection;
+	}
+    
+    $(document).ready(function() {
+        // Animate brand names
+        $('.brand-name').each(function(index) {
+            $(this).delay(index * 500).animate({opacity: 1}, 1000);
+        });
+
+        // Fade-in animation for each watch item with delay
+        $('.watch-item').each(function(index) {
+            $(this).delay(index * 300).addClass('fade-in');
+        });
+
+        // Interactive hover animation
+        $('.watch-item').hover(
+            function() {
+                $(this).css('box-shadow', '0 8px 16px rgba(0, 0, 0, 0.2)').animate({top: '-10px'}, 200);
+            }, 
+            function() {
+                $(this).css('box-shadow', '0 4px 8px rgba(0, 0, 0, 0.1)').animate({top: '0px'}, 200);
+            }
+        );
+    });
+</script>
+
+</body>
+</html>

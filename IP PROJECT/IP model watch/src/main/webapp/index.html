@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Watch Collection</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header.hero {
+            position: relative;
+            height: 100vh;
+            background: url(pexels-castorlystock-3829441.jpg) center/cover no-repeat;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 50px;
+            margin-bottom: 10px;
+            opacity: 0;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 20px;
+            opacity: 0;
+        }
+
+        .cta-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            opacity: 0;
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+            /* background: url(pexels-ferarcosn-190819.jpg) */
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 30px;
+            opacity: 0;
+            
+        }
+
+        .brand-list, .watch-list {
+            display: flex;
+            justify-content: space-around;
+            opacity: 0;
+        }
+
+        .brand-item, .watch-item {
+            background-color: #f0f0f0;
+            padding: 30px;
+            margin: 10px;
+            flex: 1;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .brand-item:hover, .watch-item:hover {
+            transform: scale(1.1);
+        }
+
+        footer.footer {
+            background-color: #333;
+            color: white;
+            padding: 40px;
+        }
+
+        footer p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="overlay"></div>
+        <nav>
+            <h1 class="logo">Luxury Watches</h1>
+            <ul class="nav-links">
+                <li><a href="brands.html">Brands</a></li>
+                <li><a href="#featured">Featured</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h2 class="hero-title">Discover Timeless Elegance</h2>
+            <p class="hero-subtitle">Explore our exclusive collection of luxury watches.</p>
+            <button class="cta-btn"> <a href="brands.html" style="text-decoration: none;color: #f0f0f0;">Shop Now</a></button>
+        </div>
+    </header>
+
+    <section id="brands" class="section brands" style="background: url(pexels-ferarcosn-190819.jpg)">
+        <h2 class="section-title" style="color: #f0f0f0;">Our Brands</h2>
+        <div class="brand-list">
+            <div class="brand-item" >Rolex</div>
+            <div class="brand-item">Omega</div>
+            <div class="brand-item">Patek Philippe</div>
+            <div class="brand-item">Tag Heuer</div>
+            <div class="brand-item">Cartier</div>
+        </div>
+    </section>
+
+    <section id="featured" class="section featured" style="background: url(copy.jpg)">
+        <h2 class="section-title" style="color: #f0f0f0;">Featured Watches</h2>
+        <div class="watch-list">
+            <div class="watch-item">Watch 1</div>
+            <div class="watch-item">>Watch 2</div>
+            <div class="watch-item">Watch 3</div>
+        </div>
+    </section>
+
+    <footer id="contact" class="section footer">
+        <h2 class="section-title">Get in Touch</h2>
+        <p>Email us at: support@luxurywatches.com</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Animate hero section elements
+            $('.hero-title').animate({opacity: 1}, 1000);
+            $('.hero-subtitle').delay(500).animate({opacity: 1}, 1000);
+            $('.cta-btn').delay(1000).animate({opacity: 1}, 1000);
+
+            // Smooth scrolling to sections
+            $('a[href^="#"]').click(function(e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 800);
+            });
+
+            // Navigate to Brands page when "Brands" is clicked
+            $('a[href="brands.html"]').click(function(e) {
+                e.preventDefault();
+                window.location.href = 'brands.html';  // Replace with actual brands page URL
+            });
+
+            // Animate section titles and lists when scrolled into view
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > $('.brands').offset().top - 500) {
+                    $('.section-title').eq(0).animate({opacity: 1}, 800);
+                    $('.brand-list').delay(300).animate({opacity: 1}, 800);
+                }
+
+                if ($(window).scrollTop() > $('.featured').offset().top - 500) {
+                    $('.section-title').eq(1).animate({opacity: 1}, 800);
+                    $('.watch-list').delay(300).animate({opacity: 1}, 800);
+                }
+
+                if ($(window).scrollTop() > $('.footer').offset().top - 500) {
+                    $('.section-title').eq(2).animate({opacity: 1}, 800);
+                }
+            });
+
+            // Hover animations for brand and watch items
+            $('.brand-item, .watch-item').hover(function() {
+                $(this).animate({fontSize: '20px'}, 200);
+            }, function() {
+                $(this).animate({fontSize: '16px'}, 200);
+            });
+        });
+    </script>
+</body>
+</html>
