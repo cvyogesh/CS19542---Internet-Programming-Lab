@@ -1,0 +1,140 @@
+<html>
+<head>
+    <title>College Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>College Registration Form</h1>
+    <form id="registrationForm">
+	<br><br>
+        <div>
+            <label for="regNo">Reg No.:</label>
+            <input type="number" id="regNo" name="regNo" required>
+            <p style="color: red;"><b id="regerror"></b></b></p>
+        </div>
+        <br>
+
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="year">Year:</label>
+            <select id="year" name="year" required>
+                <option value="" disabled selected>Select Year</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <br>
+
+	<div>
+    	<label>Gender:</label>
+    	<input type="radio" id="male" name="gender" value="male" required>
+    	<label for="male">Male</label>
+    	<input type="radio" id="female" name="gender" value="female" required>
+    	<label for="female">Female</label>
+	</div>
+
+        <br>
+
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required	>
+        </div>
+        <br>
+
+        <div>
+            <label for="semester">Semester:</label>
+            <select id="semester" name="semester" required>
+                <option value="" disabled selected>Select Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+        </div>
+        <br>
+
+        <div>
+            <label for="academicYear">Academic Year:</label>
+            <input type="number" id="academicYear" name="academicYear" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="subjectCode">Subject Code:</label>
+            <input type="text" id="subjectCode" name="subjectCode" required>
+            <p style="color: red;"><b id="codeError"></b></b></p>
+        </div>
+        <br>
+
+        <div>
+            <label for="subjectTitle">Subject Title:</label>
+            <input type="text" id="subjectTitle" name="subjectTitle" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="credits">Credits:</label>
+            <input type="number" id="credits" name="credits" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="subjectType">Subject Type:</label>
+            <select id="subjectType" name="subjectType" required>
+                <option value="" disabled selected>Select Subject Type</option>
+                <option value="Core">Core</option>
+                <option value="PE">PE</option>
+                <option value="OE">OE</option>
+            </select>
+        </div>
+        <br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+	<br><br>
+    </form>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    const regNo = document.getElementById('regNo').value;
+    const subjectCode = document.getElementById('subjectCode').value;
+
+    const regNoPattern = /^\d{9}$/;
+    const subjectCodePattern = /^[A-Za-z]{2}\d{5}$/;
+
+    if (!regNoPattern.test(regNo)) {
+        document.getElementById("regerror").innerHTML='Registration number must be a 9-digit number.';
+        event.preventDefault();  //used to prevent default action to occur in the browser (eg: default it reloads the page but using this i can prevent that )
+        document.getElementById("regNo").focus();
+	return;
+    }
+
+    if (!subjectCodePattern.test(subjectCode)) {
+        document.getElementById("codeError").innerHTML='Subject Code must be 7 characters long, with the first 2 characters as letters followed by 5 numbers.';
+        event.preventDefault();
+	document.getElementById("subjectCode").focus();
+        return;
+    }
+
+    // If both checks pass
+    alert('Form submitted successfully!');
+});
+    </script>
+</body>
+</html>
